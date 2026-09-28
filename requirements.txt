@@ -1,0 +1,13 @@
+# Core: the estimator, the simulation study, the evaluation
+numpy>=1.21
+scipy>=1.7
+pandas>=1.3
+torch>=1.12
+scikit-learn>=1.0
+matplotlib>=3.5
+seaborn>=0.11
+
+# Optional: only needed for the ROI -> Yeo network mapping and the
+# connectome figures, which are not part of the estimator itself.
+nibabel>=3.2
+nilearn>=0.9

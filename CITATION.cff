@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the article below."
+title: "IBB: Information-Borrowing Bayesian covariance estimation"
+abstract: >-
+  Reference implementation of IBB, a Bayesian framework for estimating a
+  population covariance matrix when the number of variables far exceeds the
+  number of samples. Marginal variances and correlation calibration are
+  estimated jointly through an O(d) node-wise parameterization, with a
+  Woodbury factorization reducing each HMC iteration to O(n^2 d).
+type: software
+license: MIT
+version: 0.1.0
+date-released: "2026-09-28"
+authors:
+  - family-names: Pu
+    given-names: Zhibin
+  - family-names: Zeng
+    given-names: Chenhao
+  - family-names: Ge
+    given-names: Shufei
+preferred-citation:
+  type: article
+  title: "An information-borrowing Bayesian method for inferring high-dimensional population-level brain connectivity from small samples"
+  authors:
+    - family-names: Pu
+      given-names: Zhibin
+    - family-names: Zeng
+      given-names: Chenhao
+    - family-names: Ge
+      given-names: Shufei
+  year: 2026
+  journal: Manuscript
