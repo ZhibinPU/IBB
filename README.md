@@ -47,13 +47,13 @@ IBB uses a divide-and-conquer parameterization that separates **marginal
 variances** from **correlation calibration**, while estimating both jointly:
 
 $$
-\Sigma(\bm{\theta}, \bm{\sigma}^2) = D_\sigma^{1/2}\, R_\varepsilon(\bm{\theta})\, D_\sigma^{1/2},
-\qquad D_\sigma = \operatorname{diag}(\bm{\sigma}^2)
+\Sigma(\boldsymbol{\theta}, \boldsymbol{\sigma}^2) = D_\sigma^{1/2}\, R_\varepsilon(\boldsymbol{\theta})\, D_\sigma^{1/2},
+\qquad D_\sigma = \mathrm{diag}(\boldsymbol{\sigma}^2)
 $$
 
 $$
-R_\varepsilon(\bm{\theta}) = \Lambda R_S \Lambda + \operatorname{diag}(1 - \bm{\theta}^2) + \varepsilon I_d,
-\qquad \Lambda = \operatorname{diag}(\bm{\theta}),\quad \bm{\theta} \in [0,1]^d
+R_\varepsilon(\boldsymbol{\theta}) = \Lambda R_S \Lambda + \mathrm{diag}(1 - \boldsymbol{\theta}^2) + \varepsilon I_d,
+\qquad \Lambda = \mathrm{diag}(\boldsymbol{\theta}),\quad \boldsymbol{\theta} \in [0,1]^d
 $$
 
 - $R_S = D_S^{-1/2} S D_S^{-1/2}$ is the **pilot correlation matrix** — by
@@ -69,23 +69,23 @@ $$
 
 Because $\Lambda R_S \Lambda$ is a rank-$n$ object built from the pilot, and
 $R_\varepsilon$ is diagonal-plus-low-rank, the likelihood has a closed-form
-low-rank representation. Writing $W_S = n^{-1/2}\operatorname{diag}(\bm{\theta}) Z_S^\top$
+low-rank representation. Writing $W_S = n^{-1/2}\mathrm{diag}(\boldsymbol{\theta}) Z_S^\top$
 with $Z_S = Y D_S^{-1/2}$,
 
 $$
-R_\varepsilon(\bm{\theta}) = D_\varepsilon(\bm{\theta}) + W_S W_S^\top,
-\qquad D_\varepsilon(\bm{\theta}) = \operatorname{diag}(1 - \bm{\theta}^2) + \varepsilon I_d
+R_\varepsilon(\boldsymbol{\theta}) = D_\varepsilon(\boldsymbol{\theta}) + W_S W_S^\top,
+\qquad D_\varepsilon(\boldsymbol{\theta}) = \mathrm{diag}(1 - \boldsymbol{\theta}^2) + \varepsilon I_d
 $$
 
 so the Woodbury identity and the matrix determinant lemma reduce every HMC
 iteration to $n \times n$ linear algebra:
 
 $$
-\log|R_\varepsilon(\bm{\theta})| = \log|D_\varepsilon| + \log\left|I_n + W_S^\top D_\varepsilon^{-1} W_S\right|
+\log|R_\varepsilon(\boldsymbol{\theta})| = \log|D_\varepsilon| + \log\left|I_n + W_S^\top D_\varepsilon^{-1} W_S\right|
 $$
 
 $$
-R_\varepsilon(\bm{\theta})^{-1} = D_\varepsilon^{-1} - D_\varepsilon^{-1} W_S \left(I_n + W_S^\top D_\varepsilon^{-1} W_S\right)^{-1} W_S^\top D_\varepsilon^{-1}
+R_\varepsilon(\boldsymbol{\theta})^{-1} = D_\varepsilon^{-1} - D_\varepsilon^{-1} W_S \left(I_n + W_S^\top D_\varepsilon^{-1} W_S\right)^{-1} W_S^\top D_\varepsilon^{-1}
 $$
 
 ### 🌿 Priors
@@ -107,7 +107,7 @@ Defaults: $\tau_0 = 1$, $a = 3$, $b = 1$.
 ### 🎯 Sampling
 
 Positivity constraints are removed by the log transform
-$\bm{\eta} = (\log \sigma_1^2, \dots, \log\sigma_d^2, \log\tau, \log\lambda_1,\dots,\log\lambda_d)$,
+$\boldsymbol{\eta} = (\log \sigma_1^2, \dots, \log\sigma_d^2, \log\tau, \log\lambda_1,\dots,\log\lambda_d)$,
 so the leapfrog sampler operates on $\mathbb{R}^{2d+1}$ with the Jacobian folded
 into the log-posterior. Non-finite proposals — a Cholesky failure, an overflowing
 quadratic form — are rejected rather than aborting the chain.
