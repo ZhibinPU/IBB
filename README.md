@@ -236,7 +236,7 @@ sample covariance is omitted in the ultra-high-dimensional regime, where it is
 singular.
 
 <div align="center">
-  <img src="assets/fig2-highdim.png" width="820" alt="Estimation accuracy and runtime in the ultra-high-dimensional regime">
+  <img src="assets/fig2-highdim.pdf" width="820" alt="Estimation accuracy and runtime in the ultra-high-dimensional regime">
 </div>
 
 **IBB achieved the lowest Frobenius and spectral errors across all evaluated
