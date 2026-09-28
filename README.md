@@ -117,11 +117,6 @@ quadratic form — are rejected rather than aborting the chain.
 > depends on the data through the fixed pilot $R_S$. Uncertainty in $\Sigma$ is
 > well defined; uncertainty in the pilot itself is not modelled.
 
-> [!NOTE]
-> The paper's Method section writes the ridge as $\varepsilon = 10^{-5}$. The
-> code's default is `delta=1e-4` (`src/ibb/model.py:57`, passed explicitly in
-> `src/ibb/api.py`), and the shipped chain settings were tuned at that value.
-> The two are not interchangeable without re-tuning the step size.
 
 ---
 
