@@ -47,7 +47,7 @@ IBB uses a divide-and-conquer parameterization that separates **marginal
 variances** from **correlation calibration**, while estimating both jointly:
 
 $$
-\Sigma(\boldsymbol{\theta}, \boldsymbol{\sigma}^2) = D_\sigma^{1/2}\, R_\varepsilon(\boldsymbol{\theta})\, D_\sigma^{1/2},
+\Sigma(\boldsymbol{\theta}, \boldsymbol{\sigma}^2) = D_\sigma^{1/2}\ R_\varepsilon(\boldsymbol{\theta})\ D_\sigma^{1/2},
 \qquad D_\sigma = \mathrm{diag}(\boldsymbol{\sigma}^2)
 $$
 
@@ -67,7 +67,7 @@ $$
 
 ### ⚡ Why a large $d$ is tractable
 
-Because $\Lambda R_S \Lambda$ is a rank-$n$ object built from the pilot, and
+Because $\Lambda R_S \Lambda$ is a rank of $n$ object built from the pilot, and
 $R_\varepsilon$ is diagonal-plus-low-rank, the likelihood has a closed-form
 low-rank representation. Writing $W_S = n^{-1/2}\mathrm{diag}(\boldsymbol{\theta}) Z_S^\top$
 with $Z_S = Y D_S^{-1/2}$,
@@ -81,11 +81,11 @@ so the Woodbury identity and the matrix determinant lemma reduce every HMC
 iteration to $n \times n$ linear algebra:
 
 $$
-\log|R_\varepsilon(\boldsymbol{\theta})| = \log|D_\varepsilon| + \log\left|I_n + W_S^\top D_\varepsilon^{-1} W_S\right|
+\log\ |R_\varepsilon(\boldsymbol{\theta})\ | = \log\ |D_\varepsilon\ | +  \log\left|\ I_n + W_S^\top \ D_\varepsilon^{-1} \ W_S\right|
 $$
 
 $$
-R_\varepsilon(\boldsymbol{\theta})^{-1} = D_\varepsilon^{-1} - D_\varepsilon^{-1} W_S \left(I_n + W_S^\top D_\varepsilon^{-1} W_S\right)^{-1} W_S^\top D_\varepsilon^{-1}
+R_\varepsilon(\boldsymbol{\theta})^{-1} = D_\varepsilon^{-1} - \ D_\varepsilon^{-1} W_S \left(\ I_n + \ W_S^\top \ D_\varepsilon^{-1} \ W_S\right)^{-1} \ W_S^\top \ D_\varepsilon^{-1}
 $$
 
 ### 🌿 Priors
